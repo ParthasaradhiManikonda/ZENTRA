@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Zentra</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/modals.css" />
+  </head>
+  <body>
+    <div id="app-dashboard">
+      <nav class="sidebar" id="sidebar-nav"></nav>
+
+      <main class="content-area">
+        <h1 class="welcome-header">
+          Welcome, <span id="welcome-username"></span>!
+          <span id="welcome-role" class="user-role-badge"></span>
+        </h1>
+
+        <div id="create-project-section" class="card admin-only">
+          <h2 class="section-title">Create New Project</h2>
+          <form id="project-form">
+            <input type="hidden" id="project-id-field" />
+            <div class="form-grid"></div>
+            <button
+              type="submit"
+              id="save-project-btn"
+              class="btn-primary full-width"
+            >
+              Save Project
+            </button>
+          </form>
+        </div>
+
+        <div id="assign-task-section" class="card admin-only">
+          <h2 class="section-title">Assign Task</h2>
+          <div id="assign-task-area">
+            <p>
+              Selected project:
+              <span id="selected-project-for-task">None</span>
+            </p>
+            <div class="task-grid">
+              <div>
+                <label for="member-select" class="form-label"
+                  >Select Member</label
+                >
+                <select id="member-select"></select>
+              </div>
+              <div>
+                <label for="task-input" class="form-label"
+                  >Task Description</label
+                >
+                <input
+                  type="text"
+                  id="task-input"
+                  placeholder="e.g., Implement login feature"
+                />
+              </div>
+            </div>
+            <button
+              id="assign-task-btn"
+              class="btn-primary full-width"
+              disabled
+            >
+              Assign Task
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="section-title">Recent Projects</h2>
+          <div id="recent-projects-list" class="project-list">
+            <p id="no-recent-projects-message">
+              No recent projects to display.
+            </p>
+          </div>
+          <div class="view-all-container admin-only" style="margin-top: 40px">
+            <a
+              href="all-projects.html"
+              class="btn-secondary"
+              style="padding: 10px; border-radius: 20px"
+              >View All Projects</a
+            >
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="message-modal" class="modal-overlay"></div>
+    <div id="project-detail-modal" class="modal-overlay"></div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/modals.js"></script>
+    <script src="scripts/projects.js"></script>
+    <script src="scripts/home.js"></script>
+  </body>
+</html>
