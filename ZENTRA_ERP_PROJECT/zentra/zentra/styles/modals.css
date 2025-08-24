@@ -1,0 +1,145 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: var(--bg-secondary);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+}
+
+.modal-overlay.show .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+  box-shadow: none;
+}
+
+.modal-close-btn:hover {
+  color: var(--text-primary);
+}
+
+/* Message Modal */
+#message-modal .modal-content {
+  max-width: 400px;
+  text-align: center;
+}
+
+#message-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Project Detail Modal */
+#project-detail-modal h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+#project-detail-modal .detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.detail-label {
+  font-weight: 600;
+}
+
+/* General style for badges */
+.highlight-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* Risk badges */
+.risk-badge {
+  /* Styles inherited from .highlight-badge */
+}
+
+.risk-low {
+  background-color: var(--green-primary);
+}
+
+.risk-medium {
+  background-color: var(--yellow-primary);
+}
+
+.risk-high {
+  background-color: var(--red-primary);
+}
+
+/* Progress badge */
+.progress-badge {
+  background-color: var(--blue-primary);
+}
+
+/* Status badges */
+.status-badge.status-Not-Started {
+  background-color: var(--gray-primary);
+}
+
+.status-badge.status-In-Progress {
+  background-color: var(--blue-primary);
+}
+
+.status-badge.status-Completed {
+  background-color: var(--green-primary);
+}
+
+.status-badge.status-On-Hold {
+  background-color: var(--yellow-primary);
+}
+
+.status-badge.status-Overdue {
+  background-color: var(--red-primary);
+}
+
+#project-detail-modal .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}

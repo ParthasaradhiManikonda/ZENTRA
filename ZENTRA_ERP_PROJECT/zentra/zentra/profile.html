@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - Zentra</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/modals.css" />
+  </head>
+  <body>
+    <div id="app-dashboard">
+      <nav class="sidebar" id="sidebar-nav"></nav>
+
+      <main class="content-area">
+        <h1 class="section-title">User Profile & Settings</h1>
+
+        <div class="card">
+          <h3>Account Information</h3>
+          <div class="profile-info">
+            <p>
+              <strong>Username:</strong> <span id="profile-username"></span>
+            </p>
+            <p><strong>Email:</strong> <span id="profile-email"></span></p>
+            <p><strong>Role:</strong> <span id="profile-role"></span></p>
+          </div>
+
+          <h3>Preferences</h3>
+          <div class="preference-item">
+            <input type="checkbox" id="notifications-toggle" />
+            <label for="notifications-toggle">Enable Notifications</label>
+          </div>
+          <div class="preference-item">
+            <button id="theme-toggle" class="btn-secondary">
+              Toggle Theme
+            </button>
+          </div>
+          <button id="save-preferences-btn" class="btn-primary">
+            Save Preferences
+          </button>
+
+          <h3>Change Email</h3>
+          <form id="change-email-form">
+            <div class="form-group">
+              <label for="new-email">New Email</label>
+              <input type="email" id="new-email" required />
+            </div>
+            <div class="form-group">
+              <label for="current-password-email">Current Password</label>
+              <input type="password" id="current-password-email" required />
+            </div>
+            <button type="submit" class="btn-primary">Save New Email</button>
+            <p id="email-change-status" class="status-message"></p>
+          </form>
+
+          <h3>Change Password</h3>
+          <form id="change-password-form">
+            <div class="form-group">
+              <label for="old-password">Old Password</label>
+              <input type="password" id="old-password" required />
+            </div>
+            <div class="form-group">
+              <label for="new-password">New Password</label>
+              <input type="password" id="new-password" required />
+            </div>
+            <div class="form-group">
+              <label for="confirm-new-password">Confirm New Password</label>
+              <input type="password" id="confirm-new-password" required />
+            </div>
+            <button type="submit" class="btn-primary">Save New Password</button>
+            <p id="password-change-status" class="status-message"></p>
+          </form>
+        </div>
+      </main>
+    </div>
+
+    <div id="message-modal" class="modal-overlay"></div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/modals.js"></script>
+    <script src="scripts/profile.js"></script>
+  </body>
+</html>

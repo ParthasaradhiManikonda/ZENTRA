@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics - Zentra</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <div id="app-dashboard">
+      <nav class="sidebar" id="sidebar-nav"></nav>
+
+      <main class="content-area">
+        <h1 class="section-title">Project Analytics</h1>
+        <div id="analytics-summary" class="card">
+          <p>Total Projects: <span id="total-projects-count">0</span></p>
+          <p>Completed: <span id="completed-projects-count">0</span></p>
+          <p>Average Progress: <span id="average-progress-count">0%</span></p>
+        </div>
+        <div id="analytics-charts">
+          <div class="card">
+            <h3 class="chart-title">Status Distribution</h3>
+            <canvas id="status-chart"></canvas>
+          </div>
+          <div class="card">
+            <h3 class="chart-title">Risk Level Distribution</h3>
+            <canvas id="risk-chart"></canvas>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/analytics.js"></script>
+  </body>
+</html>

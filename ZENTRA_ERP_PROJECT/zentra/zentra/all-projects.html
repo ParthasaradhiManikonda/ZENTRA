@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects-Zentra</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/modals.css" />
+  </head>
+  <body>
+    <div id="app-dashboard">
+      <nav class="sidebar" id="sidebar-nav"></nav>
+
+      <main class="content-area">
+        <h1 class="section-title">All Projects</h1>
+        <div id="all-projects-list" class="project-list">
+          <p id="no-all-projects-message">
+            No projects found. Create one from the Home page!
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <div id="message-modal" class="modal-overlay"></div>
+    <div id="project-detail-modal" class="modal-overlay"></div>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/modals.js"></script>
+    <script src="scripts/projects.js"></script>
+  </body>
+</html>

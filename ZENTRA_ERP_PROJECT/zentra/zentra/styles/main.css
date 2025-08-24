@@ -1,0 +1,532 @@
+/* Base and Dark Mode Variables */
+:root {
+  --bg-primary: #f0f4f8;
+  --bg-secondary: #ffffff;
+  --text-primary: #334155;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.06);
+  --blue-primary: #3b82f6;
+  --blue-dark: #2563eb;
+  --red-primary: #ef4444;
+  --green-primary: #22c55e;
+  --yellow-primary: #f59e0b;
+  --gray-primary: #6b7280;
+  --gradient-card: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+}
+
+body.dark-mode {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #e2e8f0;
+  --text-secondary: #a0aec0;
+  --border-color: #4a5568;
+  --card-bg: #2f3e50;
+  --input-bg: #4a5568;
+  --shadow-light: rgba(0, 0, 0, 0.2);
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+  --gradient-card: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+}
+
+/* General Styles */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#app-dashboard {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Card & Section Styles */
+.card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px var(--shadow-light),
+    0 2px 4px -1px var(--shadow-dark);
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Button Styles */
+button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px -1px var(--shadow-light),
+    0 2px 4px -1px var(--shadow-dark);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background-color: var(--blue-primary);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--blue-dark);
+}
+.btn-secondary {
+  background-color: var(--gray-primary);
+  color: white;
+}
+.btn-danger {
+  background-color: var(--red-primary);
+  color: white;
+}
+.full-width {
+  width: 100%;
+}
+
+/* Form Styles */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  border: 1px solid var(--border-color);
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  box-shadow: 5px 0 15px -5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-right: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--blue-primary);
+  margin-bottom: 1rem;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background-color: #e0f2fe;
+  color: #1d4ed8;
+}
+
+body.dark-mode .sidebar-link:hover,
+body.dark-mode .sidebar-link.active {
+  background-color: #4a5568;
+  color: #90cdf4;
+}
+
+.sidebar-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+/* Content Area */
+.content-area {
+  flex-grow: 1;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.welcome-header {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Role-specific styles */
+.admin-only {
+  display: block;
+}
+.team-member-view .admin-only {
+  display: none;
+}
+
+.user-role-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.role-admin {
+  background-color: var(--blue-primary);
+  color: white;
+}
+.role-teamMember {
+  background-color: var(--gray-primary);
+  color: white;
+}
+
+/* Project Card & List */
+.project-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Base style for project cards on the Home page */
+.project-card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px var(--shadow-light);
+  display: flex;
+  flex-direction: column;
+
+  border-left: 5px solid var(--blue-primary);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px var(--shadow-light);
+}
+
+/* Status-specific left border color for Home page cards */
+.project-card.status-NotStarted {
+  border-left-color: #94a3b8;
+}
+.project-card.status-InProgress {
+  border-left-color: var(--blue-primary);
+}
+.project-card.status-Completed {
+  border-left-color: var(--green-primary);
+}
+.project-card.status-OnHold {
+  border-left-color: var(--yellow-primary);
+}
+.project-card.status-Overdue {
+  border-left-color: var(--red-primary);
+}
+.project-card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+/* NEW STYLES for all-projects page card */
+.all-projects-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.all-projects-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* Use a pseudo-element for the left border to match the design */
+.all-projects-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+/* Status-specific left border for all-projects card */
+.all-projects-card.status-Not-Started::before {
+  background-color: #94a3b8;
+}
+.all-projects-card.status-In-Progress::before {
+  background-color: var(--blue-primary);
+}
+.all-projects-card.status-Completed::before {
+  background-color: var(--green-primary);
+}
+.all-projects-card.status-On-Hold::before {
+  background-color: var(--yellow-primary);
+}
+.all-projects-card.status-Overdue::before {
+  background-color: var(--red-primary);
+}
+
+.all-projects-card .card-header {
+  margin-bottom: 1rem;
+}
+
+.all-projects-card .card-header h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  word-wrap: break-word; /* Ensure project name wraps */
+}
+
+.all-projects-card .project-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+.all-projects-card .card-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.all-projects-card .card-details-grid p {
+  display: flex;
+  flex-direction: column; /* Changed to column to stack label and value */
+  gap: 0.25rem;
+  margin: 0;
+  word-wrap: break-word;
+  font-size: 0.9rem; /* Adjusted font size for better fit */
+}
+
+.all-projects-card .detail-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.8rem; /* Make label smaller than value */
+}
+
+.all-projects-card .members-tasks-summary {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  word-wrap: break-word;
+}
+
+/* General badge style */
+.highlight-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: white;
+}
+
+/* Status-specific colors for badges on both cards and modals */
+.highlight-badge.status-Not-Started {
+  background-color: var(--gray-primary);
+}
+.highlight-badge.status-In-Progress {
+  background-color: var(--blue-primary);
+}
+.highlight-badge.status-Completed {
+  background-color: var(--green-primary);
+}
+.highlight-badge.status-On-Hold {
+  background-color: var(--yellow-primary);
+}
+.highlight-badge.status-Overdue {
+  background-color: var(--red-primary);
+}
+
+/* Risk badges */
+.highlight-badge.risk-low {
+  background-color: var(--green-primary);
+}
+.highlight-badge.risk-medium {
+  background-color: var(--yellow-primary);
+}
+.highlight-badge.risk-high {
+  background-color: var(--red-primary);
+}
+
+/* Adjustments for the view details button */
+.all-projects-card .view-details-btn {
+  width: 100%;
+  background-color: var(--gray-primary);
+  color: white;
+}
+.all-projects-card .view-details-btn:hover {
+  background-color: #555c65;
+}
+
+/* Analytics Page Specifics */
+#analytics-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+#analytics-summary {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.chart-title {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+canvas {
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+/* Profile Page Specifics */
+.profile-info p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+.preference-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+#change-email-form,
+#change-password-form {
+  margin-top: 2rem;
+}
+.status-message {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  height: 1em;
+}
+.success {
+  color: var(--green-primary);
+}
+.error {
+  color: var(--red-primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #app-dashboard {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.5rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .sidebar h2,
+  .sidebar-footer {
+    display: none;
+  }
+  .content-area {
+    padding: 1rem;
+  }
+  .form-grid,
+  .task-grid,
+  #analytics-charts {
+    grid-template-columns: 1fr;
+  }
+}
